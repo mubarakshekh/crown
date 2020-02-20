@@ -1,57 +1,63 @@
-import React from 'react'
-// import { Component } from 'react';
-import './directory.scss'
+import React from 'react';
 
-import MenuList from '../menu-lists/menu-lists'
+import MenuList from '../menu-lists/menu-lists';
 
-class Directory extends React.Component{
+import './directory.scss';
 
-  constructor(){
-    super()
+class Directory extends React.Component {
+  constructor() {
+    super();
 
     this.state = {
       sections: [
         {
           title: 'hats',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-          id: 1
+          id: 1,
+          linkUrl: 'hats'
         },
         {
           title: 'jackets',
           imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-          id: 2
+          id: 2,
+          linkUrl: 'jackets'
         },
         {
           title: 'sneakers',
           imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-          id: 3
+          id: 3,
+          linkUrl: 'sneakers'
+
         },
         {
           title: 'womens',
           imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
           size: 'large',
-          id: 4
+          id: 4,
+          linkUrl: 'womens'
+
         },
         {
           title: 'mens',
           imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
           size: 'large',
-          id: 5
+          id: 5,
+          linkUrl: 'mens'
+
         }
       ]
-    }
+    };
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className='directory-menu'>
-        {this.state.sections.map(({id,imageUrl,title}) =>  (<MenuList key = {id} title= {title} imageUrl = {imageUrl}></MenuList>)) }
-    </div>
-    )
+        {this.state.sections.map(({ title, imageUrl, id, size, linkUrl }) => (
+          <MenuList key={id} title={title} imageUrl={imageUrl} size={size} linkUrl={linkUrl} />
+        ))}
+      </div>
+    );
   }
-
-
 }
-
 
 export default Directory;
